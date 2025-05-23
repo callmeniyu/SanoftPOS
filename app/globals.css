@@ -33,7 +33,7 @@
     width: 100%;
     background-image: radial-gradient(closest-side, rgba(255, 230, 0, 0.41), #fff);
     position: absolute;
-    top: 750px;
+    top: 900px;
     left: -20px;
     z-index: -1;
     overflow: hidden;
@@ -44,7 +44,7 @@
         width: 100%;
         position: absolute;
             background-image: radial-gradient(closest-side, rgba(255, 230, 0, 0.51), #fff);
-        top: 2150px;
+        top: 2250px;
         left: -20px;
         overflow: hidden;
     }
