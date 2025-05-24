@@ -13,6 +13,14 @@
     overflow: hidden;
 }
 
+@media (max-width: 800px) {
+    .gradient {
+        height: 900px;
+        width: 960px;
+        top: -180px;
+        left: 20%;
+    }
+}
 @media (max-width: 500px) {
     .gradient {
         height: 1000px;
@@ -43,7 +51,7 @@
         height: 800px;
         width: 100%;
         position: absolute;
-            background-image: radial-gradient(closest-side, rgba(255, 230, 0, 0.51), #fff);
+        background-image: radial-gradient(closest-side, rgba(255, 230, 0, 0.51), #fff);
         top: 2250px;
         left: -20px;
         overflow: hidden;
@@ -70,7 +78,7 @@ html {
 }
 
 @layer base {
-  :root {
+    :root {
         --background: 0 0% 100%;
         --foreground: 0 0% 3.9%;
         --card: 0 0% 100%;
@@ -97,7 +105,7 @@ html {
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
-  .dark {
+    .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
         --card: 0 0% 3.9%;
@@ -123,32 +131,32 @@ html {
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
     }
-  .theme {
+    .theme {
         --animate-meteor: meteor 5s linear infinite;
     }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+    * {
+        @apply border-border;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }
 
 @theme inline {
-  @keyframes meteor {
-  0% {
-    transform: rotate(var(--angle)) translateX(0);
-    opacity: 1;
+    @keyframes meteor {
+        0% {
+            transform: rotate(var(--angle)) translateX(0);
+            opacity: 1;
         }
-  70% {
-    opacity: 1;
+        70% {
+            opacity: 1;
         }
-  100% {
-    transform: rotate(var(--angle)) translateX(-500px);
-    opacity: 0;
+        100% {
+            transform: rotate(var(--angle)) translateX(-500px);
+            opacity: 0;
         }
     }
 }

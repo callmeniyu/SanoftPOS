@@ -32,7 +32,7 @@ const Features = () => {
                 viewport={{ once: true }}
                 className="flex flex-col gap-8"
             >
-                <motion.div className="flex flex-col md:flex-row gap-5 md:gap-8 justify-between">
+                <motion.div className="flex flex-col md:flex-row sm:px-24 md:px-0 gap-5 md:gap-8 justify-between">
                     <FeatureCard image="feature_cloud" title="Cloud-based system" desc="Access anytime, anywhere" />
                     <FeatureCard image="feature_easy" title="Easy to use" desc="No tech skills needed" />
                     <FeatureCard
@@ -43,7 +43,7 @@ const Features = () => {
                     />
                 </motion.div>
 
-                <motion.div className="flex flex-col md:flex-row gap-5 md:gap-8 justify-between">
+                <motion.div className="flex flex-col sm:px-24 md:px-0 md:flex-row gap-5 md:gap-8 justify-between">
                     <FeatureCard
                         image="feature_payment"
                         title="Online Payments"
