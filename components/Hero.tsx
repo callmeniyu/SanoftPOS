@@ -87,7 +87,17 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                         transition={{ delay: 0.6, duration: 0.7 }}
                     >
                         <p className="text-lg font-regular font-gilroy">
-                            Made for small food & beverage businesses. Now in Malaysia – starting from only RM2 per day!
+                            Made for small food & beverage businesses. Now in Malaysia.
+                            <div className="">
+                               Starting from only <span className="font-playpen font-bold text-lg">RM2 per day!</span>
+                                <Image
+                                    src="/images/underline.png"
+                                    alt="underline"
+                                    width={115}
+                                    height={100}
+                                    className="relative ml-36"
+                                />
+                            </div>
                         </p>
                     </motion.div>
 
@@ -113,15 +123,6 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                             customStyles="rounded-3xl w-40 py-6 relative "
                         />
                     </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1, duration: 0.7 }}
-                        className="text-sm ml-2"
-                    >
-                        {"*Don't worry we will not spam you :)"}
-                    </motion.p>
                 </div>
 
                 <motion.div

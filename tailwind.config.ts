@@ -58,6 +58,9 @@ export default {
   		fontFamily: {
   			gilroy: [
   				'var(--font-gilroy)'
+  			],
+  			playpen: [
+  				'var(--font-playpen)'
   			]
   		},
   		borderRadius: {

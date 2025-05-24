@@ -27,6 +27,16 @@ const Gilroy = localFont({
   ],
   variable: '--font-gilroy', 
 })
+const  PlayPen= localFont({
+  src: [
+    {
+      path: '../public/fonts/PlaypenSansArabic-Regular.ttf',
+      weight: '400', 
+      style: 'regular', 
+    },
+  ],
+  variable: '--font-playpen', 
+})
 
 export const metadata = {
   title: "BillO",
@@ -47,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${Gilroy.variable} `}
+        className={`${Gilroy.variable} ${PlayPen.variable} `}
       >
         {children}
       </body>
