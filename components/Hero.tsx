@@ -60,7 +60,7 @@ const Hero = () => {
                         transition={{ delay: 1, duration: 0.7 }}
                         className="text-sm ml-2"
                     >
-                        *Don't worry we will not spam you :)
+                       { "*Don't worry we will not spam you :)"}
                     </motion.p>
                 </div>
 
