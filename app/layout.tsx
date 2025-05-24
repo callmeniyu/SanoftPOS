@@ -28,9 +28,15 @@ const Gilroy = localFont({
   variable: '--font-gilroy', 
 })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "BillO",
-  description: "The budget-friendly POS system made for small food & beverage businesses.",
+    description: "The budget-friendly POS system made for small food & beverage businesses.",
+
+  icons: {
+    icon: '/favicons/favicon.ico',
+    shortcut: '/favicons/favicon.ico',
+    apple: '/favicons/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
