@@ -135,7 +135,7 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                         alt="hero"
                         width={450}
                         height={450}
-                        className="w-full mx-auto mb-3  md:mr-10 relative md:bottom-5 xs:w-96 xs:h-96 md:w-[27rem] md:h-[27rem]"
+                        className="w-full mx-auto mb-3  md:mr-10 relative md:bottom-5 xs:w-80 xs:h-80 xsm:w-96 xsm:h-96 md:w-[27rem] md:h-[27rem]"
                     />
                 </motion.div>
             </div>
