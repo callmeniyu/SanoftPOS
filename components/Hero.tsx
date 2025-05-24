@@ -1,8 +1,63 @@
+"use client"
 import Image from "next/image"
 import CustomBtn from "./CustomBtn"
 import { motion } from "framer-motion"
+import { useState, forwardRef } from "react"
 
-const Hero = () => {
+type HeroProps = {
+    setToast: React.Dispatch<
+        React.SetStateAction<{
+            status: boolean
+            type: "success" | "error" | ""
+            message?: string
+        }>
+    >
+    emailInputRef: React.RefObject<HTMLInputElement>
+}
+
+const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef }, ref) => {
+    const [email, setEmail] = useState("")
+
+    const subscribeUser = async (email: string) => {
+        try {
+            if (!email) {
+                setToast({
+                    status: true,
+                    type: "error",
+                    message: "Did you forget to enter your email address?",
+                })
+                return
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if (!emailRegex.test(email)) {
+                setToast({
+                    status: true,
+                    type: "error",
+                    message: "Seems like you entered an invalid email address",
+                })
+                return
+            }
+            const response = await fetch("/api/newsletter", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            })
+
+            const data = await response.json()
+            if (data) {
+                setTimeout(() => {
+                    setToast({
+                        status: true,
+                        type: "success",
+                        message: "You've been added to our waitlist!",
+                    })
+                    setEmail("")
+                }, 1000)
+            }
+        } catch (error) {
+            console.error("Error:", error)
+        }
+    }
     return (
         <div className="">
             <div className="gradient"></div>
@@ -43,14 +98,19 @@ const Hero = () => {
                         className="flex border-2 border-black rounded-full mb-3 mt-5 md:my-5 md:w-[28rem] justify-between"
                     >
                         <input
+                            ref={emailInputRef}
                             type="text"
                             placeholder="Enter your email address"
-                            className="w-full bg-transparent rounded-full px-4 py-3 focus:outline-none placeholder:font-gilroy"
+                            className="bg-transparent rounded-full px-4 py-2 sm:py-3 focus:outline-none w-full text-sm sm:text-base transition-all duration-300"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={(e) => e.key === "Enter" && subscribeUser(email)}
                         />
                         <CustomBtn
                             text="Notify Me"
-                            onClick={() => console.log("clicked")}
-                            customStyles="rounded-3xl w-40 py-6"
+                            onClick={() => subscribeUser(email)}
+                            disabled={!email}
+                            customStyles="rounded-3xl w-40 py-6 relative "
                         />
                     </motion.div>
 
@@ -60,7 +120,7 @@ const Hero = () => {
                         transition={{ delay: 1, duration: 0.7 }}
                         className="text-sm ml-2"
                     >
-                       { "*Don't worry we will not spam you :)"}
+                        {"*Don't worry we will not spam you :)"}
                     </motion.p>
                 </div>
 
@@ -81,6 +141,6 @@ const Hero = () => {
             </div>
         </div>
     )
-}
+})
 
 export default Hero

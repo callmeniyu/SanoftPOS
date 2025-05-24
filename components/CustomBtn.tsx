@@ -13,7 +13,7 @@ const CustomBtn = ({ text, onClick, disabled, customStyles }: CustomeBtnProps) =
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={`h-8 p-3 bg-black font-gilroy text-white ${customStyles} flex justify-center items-center px-4  py-3 cursor-pointer`}
-            onClick={() => console.log("clicked")}
+            onClick={onClick}
             aria-disabled={disabled}
         >
             <p className="font-medium">{text}</p>
