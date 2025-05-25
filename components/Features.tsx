@@ -13,7 +13,7 @@ const Features = () => {
     }
 
     return (
-        <div className="mt-12">
+        <section className="mt-12" aria-label="Product features">
             {/* <div className="feature_gradient"></div> */}
             <motion.h5
                 initial={{ y: -20, opacity: 0 }}
@@ -64,7 +64,7 @@ const Features = () => {
                     />
                 </motion.div>
             </motion.div>
-        </div>
+        </section>
     )
 }
 

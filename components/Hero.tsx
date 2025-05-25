@@ -59,7 +59,7 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
         }
     }
     return (
-        <div className="">
+        <section className="" aria-label="Main product introduction">
             <div className="gradient"></div>
             <div className="flex flex-col md:flex-row mt-6 justify-between gap-5">
                 <div className="w-full md:w-1/2 flex flex-col">
@@ -140,7 +140,7 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                     />
                 </motion.div>
             </div>
-        </div>
+        </section>
     )
 })
 
