@@ -12,8 +12,37 @@ const Features = () => {
         },
     }
 
+    const realTimeInventoryTracking = [
+  "Instantly updates stock levels after every sale",
+  "Low stock alerts to avoid shortages",
+  "Syncs inventory across multiple locations",
+  "Tracks product variants like size, color, or batch"
+];
+
+const salesReportsAnalytics = [
+  "Get detailed daily, weekly, and monthly sales summaries",
+  "Visual dashboards for quick performance insights",
+  "Track top-selling items and peak hours",
+  "Export reports for accounting or tax filing"
+];
+
+const kitchenPrinterCashDrawer = [
+  "Seamless integration with kitchen order printers",
+  "Supports auto-printing of receipts and order tickets",
+  "Connects with cash drawers for secure transactions",
+  "Custom printer settings for different departments"
+];
+
+const offlineSalesMode = [
+  "Process sales even without internet",
+  "Automatically syncs data when back online",
+  "Prevents downtime during connectivity issues",
+  "Maintains full access to product and pricing info"
+];
+
+
     return (
-        <section className="mt-12" aria-label="Product features">
+        <section className="mt-24 px-6" aria-label="Product features">
             {/* <div className="feature_gradient"></div> */}
             <motion.h5
                 initial={{ y: -20, opacity: 0 }}
@@ -33,34 +62,30 @@ const Features = () => {
                 className="flex flex-col gap-8"
             >
                 <motion.div className="flex flex-col md:flex-row sm:px-24 md:px-0 gap-5 md:gap-8 justify-between">
-                    <FeatureCard image="feature_cloud" title="Cloud-based system" desc="Access anytime, anywhere" />
-                    <FeatureCard image="feature_easy" title="Easy to use" desc="No tech skills needed" />
                     <FeatureCard
-                        image="feature_qr"
-                        title="QR Ordering"
-                        desc="Customers can order from their phones"
-                        img_style="w-[10rem] h-[10rem]"
+                        image="features_report"
+                        title="Sales Reports & Analytics"
+                        desc="Gain clear business insights through visual dashboards, detailed sales summaries, and performance tracking for smarter decision-making."
+                        img_style="w-[8rem] h-[8rem]"
                     />
-                </motion.div>
 
-                <motion.div className="flex flex-col sm:px-24 md:px-0 md:flex-row gap-5 md:gap-8 justify-between">
                     <FeatureCard
-                        image="feature_payment"
-                        title="Online Payments"
-                        desc="Accept e-wallets & cards easily"
-                        img_style="w-[12rem] h-[9rem]"
+                        image="features_printer"
+                        title="Kitchen Printer & Cash Drawer Compatible"
+                        desc="Easily connect to kitchen printers and cash drawers for streamlined order processing, secure payments, and smooth in-store operations."
+                        img_style="w-[8rem] h-[8rem]"
                     />
                     <FeatureCard
-                        image="feature_sales"
-                        title="Sales Reports"
-                        desc="Track your daily, weekly & monthly revenue"
-                        img_style="w-[10rem] h-[9rem]"
+                        image="features_inventory"
+                        title="Real-time Inventory Tracking"
+                        desc="Keep your stock levels accurate with real-time updates after every sale, automatic low-stock alerts, and synced inventory across all locations."
+                        img_style="w-[8rem] h-[8rem]"
                     />
                     <FeatureCard
-                        image="feature_profit"
-                        title="Profit & Loss Statements"
-                        desc="Know exactly how your business is performing"
-                        img_style="w-[10rem] h-[10rem]"
+                        image="features_offline"
+                        title="Offline Sales Mode"
+                        desc="Continue selling even when the internet goes down. All data syncs automatically once you're back online, ensuring uninterrupted service."
+                        img_style="w-[8rem] h-[8rem]"
                     />
                 </motion.div>
             </motion.div>

@@ -1,8 +1,7 @@
 "use client"
 import Image from "next/image"
-import CustomBtn from "./CustomBtn"
 import { motion } from "framer-motion"
-import { useState, forwardRef } from "react"
+import { useState } from "react"
 
 type HeroProps = {
     setToast: React.Dispatch<
@@ -12,10 +11,9 @@ type HeroProps = {
             message?: string
         }>
     >
-    emailInputRef: React.RefObject<HTMLInputElement>
 }
 
-const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef }, ref) => {
+const Hero = ({ setToast }: HeroProps) => {
     const [email, setEmail] = useState("")
 
     const subscribeUser = async (email: string) => {
@@ -59,17 +57,17 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
         }
     }
     return (
-        <section className="" aria-label="Main product introduction">
-            <div className="gradient"></div>
-            <div className="flex flex-col md:flex-row mt-6 justify-between gap-5">
-                <div className="w-full md:w-1/2 flex flex-col">
+        <section className="px-4 sm:px-8 md:px-5 lg:px-16 xl:px-24" aria-label="Main product introduction">
+            {/* <div className="gradient"></div> */}
+            <div className="flex flex-col md:flex-row mt-6 justify-between gap-12">
+                <div className="w-full md:w-1/2 flex flex-col pt-6">
                     <motion.h5
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                         className="my-5 font-medium text-lg font-gilroy"
                     >
-                        ── Coming Soon
+                        Hello Malaysia!
                     </motion.h5>
 
                     <motion.h1
@@ -78,7 +76,9 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                         transition={{ delay: 0.4, duration: 0.7 }}
                         className="font-gilroy text-4xl md:text-5xl font-extrabold mb-3 md:mb-5 leading-tight"
                     >
-                        Billo – the budget-friendly POS system <br />
+                        <span className="text-primary font-bold ">SANOFT</span>{" "}
+                        <span className="font-bold text-gray-700">POS</span> – Smart POS System for Restaurants & Retail
+                        <br />
                     </motion.h1>
 
                     <motion.div
@@ -86,10 +86,11 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.7 }}
                     >
-                        <p className="text-lg font-regular font-gilroy">
+                        <div className="text-lg font-regular font-gilroy">
                             Made for small food & beverage businesses. Now in Malaysia.
                             <div className="">
-                               Starting from only <span className="font-playpen font-bold text-lg">RM2 per day!</span>
+                                Exclusive Launch – <span className="font-playpen font-bold text-lg">Save 25%! </span> 
+                                Celebrate With Us!
                                 <Image
                                     src="/images/underline.png"
                                     alt="underline"
@@ -98,50 +99,29 @@ const Hero = forwardRef<HTMLDivElement, HeroProps>(({ setToast, emailInputRef },
                                     className="relative ml-36"
                                 />
                             </div>
-                        </p>
+                        </div>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.7 }}
-                        className="flex border-2 border-black rounded-full mb-3 mt-5 md:my-5 md:w-[28rem] justify-between"
-                    >
-                        <input
-                            ref={emailInputRef}
-                            type="text"
-                            placeholder="Enter your email address"
-                            className="bg-transparent rounded-full px-4 py-2 sm:py-3 focus:outline-none w-full text-sm sm:text-base transition-all duration-300"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" && subscribeUser(email)}
-                        />
-                        <CustomBtn
-                            text="Notify Me"
-                            onClick={() => subscribeUser(email)}
-                            disabled={!email}
-                            customStyles="rounded-3xl w-40 py-6 relative "
-                        />
-                    </motion.div>
+
                 </div>
 
                 <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.7 }}
-                    className="mt-16 md:mt-0 min-w-max justify-center"
+                    className="mt-16 md:mt-0  justify-center "
                 >
                     <Image
                         src="/images/hero_img.png"
                         alt="hero"
-                        width={450}
-                        height={450}
-                        className="w-full mx-auto mb-3  md:mr-10 relative md:bottom-5 xs:w-80 xs:h-80 xsm:w-96 xsm:h-96 md:w-[27rem] md:h-[27rem]"
+                        width={650}
+                        height={650}
+                        className="w-full mx-auto xs:w-80 xs:h-80 xsm:w-96 xsm:h-96 md:w-[34rem] md:h-[26rem]"
                     />
                 </motion.div>
             </div>
         </section>
     )
-})
+}
 
 export default Hero

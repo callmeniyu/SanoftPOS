@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 type FeatureCardProps = {
     image: string
@@ -33,8 +34,16 @@ const FeatureCard = ({ image, title, desc, img_style }: FeatureCardProps) => {
                     className={`${img_style}`}
                 />
             </motion.div>
-            <h3 className="text-xl font-gilroy font-bold">{title}</h3>
-            <p className="text-lg font-gilroy font-regular text-center">{desc}</p>
+            <h3 className="text-xl font-gilroy font-bold text-primary text-center">{title}</h3>
+            <p className="text-center text-gray-700 mt-2">{ desc}</p>
+            {/* {features && features.length > 0 && (
+                features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 w-full justify-between">
+                        <IoIosCheckmarkCircleOutline />
+                        <p className="text-base text-gray-600">{feature}</p>
+                    </div>
+                ))
+            )} */}
         </motion.div>
     )
 }

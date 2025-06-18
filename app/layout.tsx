@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import localFont from 'next/font/local';
+import { Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins', // optional for CSS variables
+  display: 'swap', // ensures text remains visible during webfont load
+})
 
 const Gilroy = localFont({
   src: [
@@ -95,7 +102,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${Gilroy.variable} ${PlayPen.variable} `}
+        className={`${Gilroy.variable} ${PlayPen.variable} ${poppins.variable} `}
       >
         {children}
       </body>

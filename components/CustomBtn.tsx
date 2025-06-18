@@ -12,7 +12,7 @@ const CustomBtn = ({ text, onClick, disabled, customStyles }: CustomeBtnProps) =
         <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`h-8 p-3 bg-black font-gilroy text-white ${customStyles} flex justify-center items-center px-4  py-3 cursor-pointer`}
+            className={`h-8 p-3 bg-primary font-gilroy text-white ${customStyles} flex justify-center items-center px-4  py-3 cursor-pointer`}
             onClick={onClick}
             aria-disabled={disabled}
         >

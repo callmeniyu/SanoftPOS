@@ -5,12 +5,13 @@
 .gradient {
     height: 900px;
     width: 960px;
-    background-image: radial-gradient(closest-side, rgba(255, 230, 0, 0.51), #fff);
+    background-image: radial-gradient(closest-side, rgba(39,44,135, 0.51), #fff);
     position: absolute;
     top: -180px;
     left: 23%;
     z-index: -1;
     overflow: hidden;
+    visibility: hidden;
 }
 
 @media (max-width: 800px) {
