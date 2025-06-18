@@ -3,7 +3,7 @@ import Image from "next/image"
 const PaymentMethods = () => {
     return (
         <section
-            className="px-4 sm:px-8 md:px-5 lg:px-16 xl:px-20 py-10 mt-24 bg-[#F2F2F2] flex flex-col gap-10 "
+            className="px-4 sm:px-8 md:px-5 lg:px-16 xl:px-20 py-10 mt-24 bg-[#F2F2F2]/40 flex flex-col gap-10 "
             aria-label="Payment Methods"
         >
             <div className="w-full flex justify-between items-center">
@@ -76,7 +76,7 @@ const PaymentMethods = () => {
                     </div>
                 </div>
             </div>
-            <hr className="h-[1.5px] bg-gray-300" />
+            <hr className="h-[1.2px] bg-gray-300" />
             <div className="w-full flex justify-between items-center">
                 <div className="flex justify-center items-center w-1/6">
                     <h2 className="text-center items-center font-gilroy text-2xl font-bold text-primary">
