@@ -65,9 +65,24 @@ const InquiryForm = ({ setToast }: InquiryFormProps) => {
         }
         setIsSubmitting(true)
         emailjs
-            .sendForm("service_r0zwhl9", "template_f9epsuz", form.current, {
-                publicKey: "XtmqXDiWbWo9uBLzb",
-            })
+            .sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ??
+                    (() => {
+                        throw new Error("EMAILJS_SERVICE_ID is not defined")
+                    })(),
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ??
+                    (() => {
+                        throw new Error("EMAILJS_SERVICE_ID is not defined")
+                    })(),
+                form.current,
+                {
+                    publicKey:
+                        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ??
+                        (() => {
+                            throw new Error("EMAILJS_SERVICE_ID is not defined")
+                        })(),
+                }
+            )
             .then(
                 () => {
                     setSubmitStatus({ type: "success", message: "Inquiry sent successfully!" })
