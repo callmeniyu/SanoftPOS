@@ -54,12 +54,12 @@ const Footer = () => {
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.7 }}
                     viewport={{ once: true }}
-                    className="text-gray-500 justify-end"
+                    className="text-gray-500 bg-red-300 items-center md:justify-end"
                 >
-                    <p className="w-72 mb-4 text-gray-700">
+                    <p className="w-72 mb-4 text-gray-700 text-center md:text-left mx-auto md:mx-0">
                         C-1-19, CAMERON FAIR, Jalan Camelia, Tanah Rata, 39000 Tanah Rata, Pahang
                     </p>
-                    <p>Copyright@2025 SANOFTPOS. All Rights Reserved.</p>
+                    <p className="text-center md:text-left">Copyright@2025 SANOFTPOS. All Rights Reserved.</p>
                 </motion.div>
             </div>
         </motion.div>
