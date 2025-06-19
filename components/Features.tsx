@@ -61,7 +61,7 @@ const offlineSalesMode = [
                 viewport={{ once: true }}
                 className="flex flex-col gap-8"
             >
-                <motion.div className="flex flex-col md:flex-row sm:px-24 md:px-0 gap-5 md:gap-8 justify-between">
+                <motion.div className="flex flex-col md:flex-row xs:gap-7 sm:px-24 md:px-0 md:flex-wrap lg:gap-5 justify-center">
                     <FeatureCard
                         image="features_report"
                         title="Sales Reports & Analytics"

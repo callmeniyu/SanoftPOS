@@ -1,3 +1,4 @@
+// PricingCard.tsx
 import { useState, useRef, useEffect } from "react";
 import { IoIosCheckmark } from "react-icons/io";
 import { PiMedalFill } from "react-icons/pi";
@@ -14,6 +15,7 @@ type PricingCardProps = {
     second_color?: string;
     primary_color?: string;
     icon: IconType;
+    isPopular?: boolean;
     visibleFeaturesCount?: number;
 };
 
@@ -25,11 +27,12 @@ const PricingCard = ({
     icon, 
     primary_color, 
     second_color,
-    visibleFeaturesCount = 6
+    isPopular = false,
+    visibleFeaturesCount = icon === "lite" ? 5 : 9
 }: PricingCardProps) => {
     const [showAllFeatures, setShowAllFeatures] = useState(false);
-    const [contentHeight, setContentHeight] = useState("auto");
     const contentRef = useRef<HTMLDivElement>(null);
+    const [contentHeight, setContentHeight] = useState('auto');
     
     const typeMap = {
         lite: <PiMedalFill className="text-[#5251D6] text-xl" />,
@@ -39,102 +42,105 @@ const PricingCard = ({
 
     useEffect(() => {
         if (contentRef.current) {
-            // Get the full height of the content when showing all features
-            if (showAllFeatures) {
-                setContentHeight(`${contentRef.current.scrollHeight}px`);
-                setTimeout(() => {
-                    setContentHeight("auto");
-                }, 300);
-            } else {
-                // Set height to the initial visible features height
-                setContentHeight(`${contentRef.current.scrollHeight}px`);
-                setTimeout(() => {
-                    if (contentRef.current) {
-                        const firstFeature = contentRef.current.querySelector("li:first-child");
-                        if (firstFeature) {
-                            const featureHeight = firstFeature.clientHeight;
-                            setContentHeight(`${featureHeight * visibleFeaturesCount}px`);
-                        }
-                    }
-                }, 10);
+            const featureElements = contentRef.current.querySelectorAll('li');
+            if (featureElements.length > 0) {
+                const featureHeight = featureElements[0].clientHeight;
+                const newHeight = showAllFeatures 
+                    ? `${contentRef.current.scrollHeight}px`
+                    : `${featureHeight * Math.min(visibleFeaturesCount, features.length)}px`;
+                setContentHeight(newHeight);
             }
         }
     }, [showAllFeatures, features.length, visibleFeaturesCount]);
 
     const currentIcon = typeMap[icon];
-    const visibleFeatures = showAllFeatures ? features : features.slice(0, visibleFeaturesCount);
     const hasHiddenFeatures = features.length > visibleFeaturesCount;
+    const visibleFeatures = showAllFeatures ? features : features.slice(0, visibleFeaturesCount);
 
-    const toggleFeatures = () => {
-        setShowAllFeatures(!showAllFeatures);
-    };
+    const toggleFeatures = () => setShowAllFeatures(!showAllFeatures);
 
     return (
-        <div className="flex-1 border-[1px] border-gray-100 rounded-2xl shadow-lg overflow-hidden max-h-max">
-            <div className="flex gap-4 px-5 py-8">
-                <div
-                    className={`${
-                        icon == "lite" ? "bg-[#F1F1FE]" : icon == "pro" ? "bg-[#EEFFF7]" : "bg-[#FFFAEE]"
-                    } p-2 rounded-full flex items-center justify-center w-10 h-10`}
-                >
-                    {currentIcon}
-                </div>
-                <div className="flex flex-col gap-1">
-                    <div className="text-3xl font-gilroy font-bold tracking-wider">{title}</div>
-                    <div className="text-gray-500 text-sm font-gilroy">{desc}</div>
-                </div>
-            </div>
-
-            <hr />
-
-            <div className="relative">
-                <div
-                    ref={contentRef}
-                    className="overflow-hidden transition-all duration-11300 ease-in-out"
-                    style={{ height: contentHeight }}
-                >
-                    <ul className="flex flex-col gap-2 p-4">
-                        {features.map((feature, index) => (
-                            <li 
-                                key={index} 
-                                className="flex gap-2 items-start"
-                                style={{ display: showAllFeatures || index < visibleFeaturesCount ? "flex" : "none" }}
-                            >
-                                <div className={`p-[0.5px] rounded-full mt-1 ${icon == "lite" ? "bg-[#F1F1FE]" : icon == "pro" ? "bg-[#EEFFF7]" : "bg-[#FFFAEE]"}`}>
-                                    <IoIosCheckmark className={`rounded-full text-lg ${icon == "lite" ? "text-[#5251D6]" : icon == "pro" ? "text-[#1DBF74]" : "text-[#EBA71A]"}`}/>
-                                </div>
-                                <p>{feature}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                {hasHiddenFeatures && (
-                    <>
-                        {!showAllFeatures && (
-                            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-                        )}
-                        <div className="flex justify-center pb-4">
-                            <button
-                                onClick={toggleFeatures}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                                    icon == "lite" 
-                                        ? "bg-[#F1F1FE] text-[#5251D6] hover:bg-[#e0e0fc]" 
-                                        : icon == "pro" 
-                                            ? "bg-[#EEFFF7] text-[#1DBF74] hover:bg-[#d5f7e8]" 
-                                            : "bg-[#FFFAEE] text-[#EBA71A] hover:bg-[#f5eed6]"
-                                }`}
-                            >
-                                {showAllFeatures ? "See Less" : `See More (${features.length - visibleFeaturesCount}+)`}
-                            </button>
-                        </div>
-                    </>
+        <div className="relative h-full">
+            <div className={`max-h-max h-full flex flex-col border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md ${
+                isPopular ? "ring-2 ring-primary" : ""
+            }`}>
+                {isPopular && (
+                    <div className="absolute top-0 right-0 bg-primary text-white px-3 py-1 text-xs font-bold rounded-bl-lg rounded-tr-lg">
+                        POPULAR
+                    </div>
                 )}
-            </div>
+                
+                <div className="p-6">
+                    <div className="flex items-start gap-4 mb-6">
+                        <div 
+                            className={`p-2 rounded-full flex-shrink-0`}
+                            style={{ backgroundColor: second_color }}
+                        >
+                            {currentIcon}
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+                            <p className="mt-1 text-gray-500">{desc}</p>
+                        </div>
+                    </div>
 
-            <div className={`mt-8 py-20 w-full flex justify-center items-center ${icon == "lite" ? "bg-[#F1F1FE]" : icon == "pro" ? "bg-[#EEFFF7]" : "bg-[#FFFAEE]"}`}>
-                <h1 className="text-4xl font-gilroy font-bold">RM{price}</h1>
-                <p className="font-gilroy text-lg text-gray-500"> /month</p>
+                    <div className="relative">
+                        <div 
+                            ref={contentRef}
+                            className="overflow-hidden transition-all duration-300 ease-in-out"
+                            style={{ height: contentHeight }}
+                        >
+                            <ul className="space-y-3">
+                                {visibleFeatures.map((feature, index) => (
+                                    <li key={index} className="flex items-start">
+                                        <div 
+                                            className="flex-shrink-0 p-0.5 rounded-full mt-1"
+                                            style={{ backgroundColor: second_color }}
+                                        >
+                                            <IoIosCheckmark 
+                                                className="rounded-full text-lg"
+                                                style={{ color: primary_color }}
+                                            />
+                                        </div>
+                                        <span className="ml-3 text-gray-700">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {hasHiddenFeatures && (
+                            <>
+                                {!showAllFeatures && (
+                                    <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                                )}
+                                <div className="pt-8">
+                                    <button
+                                        onClick={toggleFeatures}
+                                        className={`w-full py-2 text-sm font-medium rounded-md transition-colors duration-200 relative z-10`}
+                                        style={{ 
+                                            backgroundColor: second_color,
+                                            color: primary_color
+                                        }}
+                                    >
+                                        {showAllFeatures ? 'Show Less' : `Show All Features (${features.length})`}
+                                    </button>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
+
+                <div 
+                    className={`px-6 py-8 text-center mt-auto`}
+                    style={{ backgroundColor: second_color }}
+                >
+                    <div className="flex items-center justify-center py-12">
+                        <span className="text-4xl font-bold" style={{ color: primary_color }}>
+                            RM{price}
+                        </span>
+                        <span className="ml-2 text-lg text-gray-600">/month</span>
+                    </div>
+                </div>
             </div>
         </div>
     );

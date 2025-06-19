@@ -48,8 +48,8 @@ const Page = () => {
         >
             {/* <Image src="/images/hero_bgshape.png" alt="underline" width={500} height={500} className="absolute right-0 top-0" /> */}
             <Navbar  />
-            <Hero setToast={setToast} />
-            <InquiryForm />
+            <Hero  />
+            <InquiryForm setToast={setToast}/>
         <Features />
             <PaymentMethods />
             <Pricing />

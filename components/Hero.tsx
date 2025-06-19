@@ -1,66 +1,12 @@
-"use client"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { useState } from "react"
 
-type HeroProps = {
-    setToast: React.Dispatch<
-        React.SetStateAction<{
-            status: boolean
-            type: "success" | "error" | ""
-            message?: string
-        }>
-    >
-}
+const Hero = () => {
 
-const Hero = ({ setToast }: HeroProps) => {
-    const [email, setEmail] = useState("")
-
-    const subscribeUser = async (email: string) => {
-        try {
-            if (!email) {
-                setToast({
-                    status: true,
-                    type: "error",
-                    message: "Did you forget to enter your email address?",
-                })
-                return
-            }
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            if (!emailRegex.test(email)) {
-                setToast({
-                    status: true,
-                    type: "error",
-                    message: "Seems like you entered an invalid email address",
-                })
-                return
-            }
-            const response = await fetch("/api/newsletter", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email }),
-            })
-
-            const data = await response.json()
-            if (data) {
-                setTimeout(() => {
-                    setToast({
-                        status: true,
-                        type: "success",
-                        message: "You've been added to our waitlist!",
-                    })
-                    setEmail("")
-                }, 1000)
-            }
-        } catch (error) {
-            console.error("Error:", error)
-        }
-    }
     return (
         <section className="px-4 sm:px-8 md:px-5 lg:px-16 xl:px-24" aria-label="Main product introduction">
-            {/* <div className="gradient"></div> */}
-            <div className="flex flex-col md:flex-row mt-6 justify-between gap-12">
-                <div className="w-full md:w-1/2 flex flex-col pt-6">
+            <div className="flex flex-col md:flex-row mt-6 justify-between gap-2 md:gap-12">
+                <div className="w-full md:w-1/2 flex flex-col pt-2 md:pt-6">
                     <motion.h5
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
@@ -96,7 +42,7 @@ const Hero = ({ setToast }: HeroProps) => {
                                     alt="underline"
                                     width={115}
                                     height={100}
-                                    className="relative ml-36"
+                                    className="relative ml-36 sm:mt-8 xsm:mt-8 md:mt-0 bottom-7 md:bottom-0"
                                 />
                             </div>
                         </div>
@@ -116,7 +62,7 @@ const Hero = ({ setToast }: HeroProps) => {
                         alt="hero"
                         width={650}
                         height={650}
-                        className="w-full mx-auto xs:w-80 xs:h-80 xsm:w-96 xsm:h-96 md:w-[34rem] md:h-[26rem]"
+                        className="w-full mx-auto xs:w-96 xs:h-72 xsm:w-96 xsm:h-80 md:w-[34rem] md:h-[26rem]"
                     />
                 </motion.div>
             </div>

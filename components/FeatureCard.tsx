@@ -18,7 +18,7 @@ const FeatureCard = ({ image, title, desc, img_style }: FeatureCardProps) => {
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
             }}
             transition={{ type: "spring", stiffness: 300 }}
-            className={`flex-1 p-3 px-4 border-[1.5px] border-gray-400/30 rounded-2xl flex flex-col justify-center items-center gap-2 bg-gray-200/10 backdrop-blur-3xl`}
+            className={`xs:flex-1 lg:flex-1 md:max-w-96 md:flex-auto p-3 px-4 border-[1.5px] border-gray-400/30 rounded-2xl flex flex-col justify-center items-center gap-2 bg-gray-200/10 backdrop-blur-3xl`}
         >
             <motion.div
                 initial={{ scale: 1 }}
