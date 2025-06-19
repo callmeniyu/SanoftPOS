@@ -120,7 +120,7 @@ const InquiryForm = ({ setToast }: InquiryFormProps) => {
                         alt="inquiry"
                         width={450}
                         height={500}
-                        className="object-cover rounded-t-lg lg:rounded-tl-lg lg:rounded-bl-lg lg:rounded-tr-none w-full lg:w-auto"
+                        className="object-cover rounded-t-lg lg:rounded-tl-lg lg:rounded-bl-lg lg:rounded-tr-none w-full lg:w-auto order-1 md:-order-1"
                     />
                     <div className="p-6 rounded-lg w-full">
                         <h2 className="font-gilroy text-3xl font-bold text-primary">
