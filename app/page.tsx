@@ -9,6 +9,7 @@ import { useState } from "react"
 import InquiryForm from "@/components/InquiryForm"
 import PaymentMethods from "@/components/PaymentMethods"
 import Pricing from "@/components/Pricing"
+import InvoiceBanner from "@/components/InvoiceBanner"
 
 const Page = () => {
     const [toast, setToast] = useState<{
@@ -53,6 +54,7 @@ const Page = () => {
         <Features />
             <PaymentMethods />
             <Pricing />
+            <InvoiceBanner />
             <Footer />
             <Toast toast={toast} setToast={setToast} autoClose={3000} />
         </motion.div>

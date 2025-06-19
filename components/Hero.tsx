@@ -33,7 +33,7 @@ const Hero = () => {
                         transition={{ delay: 0.6, duration: 0.7 }}
                     >
                         <div className="text-lg font-regular font-gilroy">
-                            Made for small food & beverage businesses. Now in Malaysia.
+                            Made for small restaurants & retail businesses. Now in Malaysia.
                             <div className="">
                                 Exclusive Launch – <span className="font-playpen font-bold text-lg">Save 25%! </span> 
                                 Celebrate With Us!
@@ -42,7 +42,7 @@ const Hero = () => {
                                     alt="underline"
                                     width={115}
                                     height={100}
-                                    className="relative ml-36 sm:mt-8 xsm:mt-8 md:mt-0 xs:bottom-16 xsm:bottom-8 md:bottom-0"
+                                    className="relative ml-36 sm:mt-8  md:mt-0 xs:bottom-8 xsm:bottom-0 md:bottom-8 lg:bottom-0"
                                 />
                             </div>
                         </div>

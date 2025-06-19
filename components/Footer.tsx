@@ -28,7 +28,6 @@ const Footer = () => {
                     viewport={{ once: true }}
                     className="flex flex-col items-center md:items-start gap-3"
                 >
-                    <Image src="/images/footer-img.png" alt="e-invoice" width={115} height={100} className="" />
                     <div className="flex gap-3">
                         <motion.div
                             whileHover={{ scale: 1.1, rotate: 10 }}

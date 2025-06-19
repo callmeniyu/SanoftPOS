@@ -47,26 +47,26 @@ const  PlayPen= localFont({
 
 export const metadata = {
   title: {
-    default: "Billo POS",
-    template: "%s | Billo POS",
+    default: "SANOFTPOS",
+    template: "%s | SANOFTPOS",
   },
-  description: 'Affordable POS system for small food & beverage businesses in Malaysia. Start from only RM2 per day!',
+  description: 'Affordable POS system for small restaurants & retail in Malaysia.',
   keywords: ['POS system', 'Malaysia POS', 'restaurant POS', 'cafe POS', 'affordable POS'],
-  authors: [{ name: 'Billo O' }],
-       creator: 'Billo',
-  publisher: 'Billo',
-  metadataBase: new URL('https://billo.my'),
+  authors: [{ name: 'SANOFTPOS' }],
+       creator: 'SANOFTPOS',
+  publisher: 'SANOFTPOS',
+  metadataBase: new URL('https://sanoftpos.com'),
       alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Billo - Budget-Friendly POS System',
+    title: 'SANOFTPOS - Budget-Friendly POS System',
     description: 'Affordable POS system for small businesses in Malaysia',
-    url: 'https://billo.my',
-    siteName: 'Billo POS',
+    url: 'https://sanoftpos.com',
+    siteName: 'SANOFTPOS',
     images: [
       {
-        url: 'https://billo.my/favicons/android-chrome-512x512.png',
+        url: 'https://sanoftpos.com/favicons/android-chrome-512x512.png',
         width: 1200,
         height: 630,
       },

@@ -25,7 +25,7 @@ const Pricing = () => {
                 "Shift management",
                 "Kitchen order ticketing (KOT)",
                 "Product & category with image",
-                "Customer & vendor transaction support (max 1000 customers)",
+                "Customer & vendor transaction support",
                 "KOT, table support",
                 "Profit and loss calculation",
                 "KOT support",
