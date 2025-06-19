@@ -42,7 +42,7 @@ const Hero = () => {
                                     alt="underline"
                                     width={115}
                                     height={100}
-                                    className="relative ml-36 sm:mt-8 xsm:mt-8 md:mt-0 bottom-7 md:bottom-0"
+                                    className="relative ml-36 sm:mt-8 xsm:mt-8 md:mt-0 xs:bottom-16 xsm:bottom-8 md:bottom-0"
                                 />
                             </div>
                         </div>
