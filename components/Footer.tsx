@@ -59,7 +59,7 @@ const Footer = () => {
                     <p className="w-72 mb-4 text-gray-700">
                         C-1-19, CAMERON FAIR, Jalan Camelia, Tanah Rata, 39000 Tanah Rata, Pahang
                     </p>
-                    <p>Copyright@2025 Billo. All Rights Reserved.</p>
+                    <p>Copyright@2025 SANOFTPOS. All Rights Reserved.</p>
                 </motion.div>
             </div>
         </motion.div>
