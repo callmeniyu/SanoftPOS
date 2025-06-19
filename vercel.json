@@ -13,7 +13,7 @@
   "redirects": [
     {
       "source": "/blog",
-      "destination": "https://blog.billo.my",
+      "destination": "https://blog.sanoftpos.com",
       "permanent": true
     }
   ]

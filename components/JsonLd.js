@@ -1,10 +1,9 @@
-// Create a component called JsonLd.js
 export const ProductJsonLd = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Billo POS System",
-    "description": "Budget-friendly POS system for small food & beverage businesses in Malaysia",
+    "name": "SANOFTPOS System",
+    "description": "Affordable POS system for small restaurants & retail in Malaysia",
     "operatingSystem": "Web, iOS, Android",
     "applicationCategory": "BusinessApplication",
     "offers": {
